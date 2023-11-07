@@ -13,7 +13,7 @@ bool('sein') or not bool('sein')        True
 """
 print('a' not in 'Sonne')
 print((1 == 1) and (1 == 2))
-print(not(2 > 2))
+print(not (2 > 2))
 print(type(1) == type(2))
 print(str(1) in str(123))
 print(bool('sein') or not bool('sein'))
@@ -41,14 +41,50 @@ while len(planeten) > 2:
 #       eingabe, 'ist kein Planet') #4
 # print('Glückwunsch. Du hast alle Planeten aufgezählt.') #5
 
-#Übung 1 Grundumsatz
-mass = float(input("Wie viel wiegen Sie? (Gewicht in kg): "))
-height = float(input("Wie gross sind Sie? (Groesse in cm): "))
-age = float(input("Wie alt sind Sie? (Alter in Jahre): "))
-sex = input("Sind sie ein Mann oder eine Frau? (m/f): ")
-grundumsatz = 0.0
-if sex == "m":
-    grundumsatz = 66.5 + 13 * mass + 5 * height - 6.8 * 5
-elif sex == "f":
-    grundumsatz = 665 + 9.6 * mass + 1.8 * height - 4.7 * 5
-print("Ihr Grundumsatz betraegt", grundumsatz)
+# Übung 1 Grundumsatz
+# mass = float(input("Wie viel wiegen Sie? (Gewicht in kg): "))
+# height = float(input("Wie gross sind Sie? (Groesse in cm): "))
+# age = float(input("Wie alt sind Sie? (Alter in Jahre): "))
+# sex = input("Sind sie ein Mann oder eine Frau? (m/f): ")
+# grundumsatz = 0.0
+# if sex == "m":
+#     grundumsatz = 66.5 + 13 * mass + 5 * height - 6.8 * 5
+# elif sex == "f":
+#     grundumsatz = 665 + 9.6 * mass + 1.8 * height - 4.7 * 5
+# print("Ihr Grundumsatz betraegt", grundumsatz)
+
+
+# Übung 2 Entscheidungsbaum
+def validate_answer(answer):
+    if answer == 'y' or answer == 'n':
+        return answer
+    else:
+        return "keine valide Antwort"
+
+
+validate_answer(answer='y')
+answer = validate_answer(input("Scheint die Sonne?(y/n): "))
+if answer != 'y' and answer != 'n':
+    print(answer)
+elif answer == 'y':
+    answer = validate_answer(input("Hohe Luftfeuchtigkeit?(y/n): "))
+    if answer != 'y' and answer != 'n':
+        print(answer)
+    elif answer == 'y':
+        print('Kein Sport')
+    else:
+        print('Sport')
+else:
+    answer = validate_answer(input("Regnet es?(y/n): "))
+    if answer != 'y' and answer != 'n':
+        print(answer)
+    elif answer == 'y':
+        answer = validate_answer(input("Ist es windig?(y/n): "))
+        if answer != 'y' and answer != 'n':
+            print(answer)
+        elif answer == 'y':
+            print('Kein Sport')
+        else:
+            print('Sport')
+    else:
+        print('Sport')
