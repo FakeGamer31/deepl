@@ -66,8 +66,9 @@ X_train, X_test, y_train, y_test = train_test_split(X_trans, y, test_size=0.33, 
 # Muss ich hier auch X benutzen oder kann ich das features_df benutzen?
 
 model = keras.models.Sequential([
-    keras.layers.Dense(20, activation=keras.activations.relu),
-    keras.layers.Dense(3, activation=keras.activations.softmax)
+    keras.layers.Dense(5, activation = keras.activations.relu),
+    keras.layers.Dense(10, activation = keras.activations.relu),
+    keras.layers.Dense(3, activation = keras.activations.softmax)
 ])
 
 model.compile(optimizer='adam',
